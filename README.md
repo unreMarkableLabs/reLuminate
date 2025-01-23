@@ -47,8 +47,15 @@ During boot, the service will enable the linear_mapping mode on the front light.
 `echo yes > /sys/class/backlight/rm_frontlight/linear_mapping`
 
 # Reference Articles/Posts
+Brightness hack
 https://www.reddit.com/r/RemarkableTablet/comments/1g0x5tm/about_5_times_brighter_front_light_available_in/
 
 https://raqami.io/tips-tricks/remarkable-paper-pro-hack-for-brighter-frontlight-tutorial/
 
 https://www.reddit.com/r/RemarkableTablet/comments/1g09l0p/comment/lr7ximy/?share_id=aQgCCoBfX9XT25axEWlbw&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1
+
+Remounting file system
+https://www.reddit.com/r/RemarkableTablet/comments/1fiztzv/nonobvious_tips_for_loading_your_custom_templates/
+
+wget https support
+https://github.com/rM-self-serve/webinterface-onboot/issues/6
