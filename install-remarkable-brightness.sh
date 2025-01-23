@@ -105,3 +105,24 @@ install() {
 
 	[[ -f $installfile ]] && rm $installfile
 }
+
+remove() {
+	echo "Remove ${pkgname}"
+	echo ''
+
+	if systemctl --quiet is-active "$pkgname" 2>/dev/null; then
+		echo "Stopping $pkgname"
+		systemctl stop "$pkgname"
+	fi
+	if systemctl --quiet is-enabled "$pkgname" 2>/dev/null; then
+		echo "Disabling $pkgname"
+		systemctl disable "$pkgname"
+	fi
+
+	[[ -f $servicefile ]] && rm $servicefile
+	[[ -f $installfile ]] && rm $installfile
+
+	echo "Successfully removed ${pkgname}"
+}
+
+main "$@"
