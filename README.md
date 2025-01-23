@@ -1,4 +1,4 @@
-<img src="https://github.com/stephenpapierski/reLuminate/blob/main/images/reLuminate-header.png?raw=true">
+<img src="https://github.com/stephenpapierski/reLuminate/blob/main/images/reLuminate-header-min.png?raw=true">
 
 ---
 
