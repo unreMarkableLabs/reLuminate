@@ -1,5 +1,5 @@
 # Project Images
-<img src="https://raw.githubusercontent.com/stephenpapierski/reLuminate/refs/heads/main/images/reLuminate-icon.png?token=GHSAT0AAAAAAC5C3CUQJV66V7ZLVG2MKJ3IZ4SS4SA" width="200">
+<img src="https://github.com/stephenpapierski/reLuminate/blob/main/images/reLuminate-icon.png?raw=true" width="200">
 
 [reLuminate-icon.png](images/reLuminate-icon.png) contains modifications from the images below.
 
