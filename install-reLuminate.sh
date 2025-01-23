@@ -83,7 +83,7 @@ install() {
 		fi
 	fi
 	if [ "$need_service" = true ]; then
-    "$wget_path" -q "https://github.com/stephenpapierski/${pkgname}/releases/download/${version}/${pkgname}.service" \
+    "$wget_path" -q "https://github.com/unreMarkableLabs/${pkgname}/releases/download/${version}/${pkgname}.service" \
 			-O "$servicefile"
 
 		if ! srvc_sha_check; then
