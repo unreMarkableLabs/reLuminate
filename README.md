@@ -68,3 +68,7 @@ https://github.com/rM-self-serve/webinterface-onboot/issues/6
 remarkable-toolchain
 
 https://remarkable.guide/devel/toolchains.html#docker
+
+cross-compile wget for arm
+
+https://www.matteomattei.com/cross-compile-wget-statically-for-arm/
