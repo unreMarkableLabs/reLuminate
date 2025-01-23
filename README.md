@@ -69,6 +69,10 @@ remarkable-toolchain
 
 https://remarkable.guide/devel/toolchains.html#docker
 
+rMPP kernel
+
+https://github.com/reMarkable/linux-imx-rm
+
 cross-compile wget for arm
 
 https://www.matteomattei.com/cross-compile-wget-statically-for-arm/
