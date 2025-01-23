@@ -1,8 +1,12 @@
+<img src="https://github.com/stephenpapierski/reLuminate/blob/main/images/reLuminate-header.png?raw=true">
+
+---
+
+# reLuminate
 <!--![Static Badge](https://img.shields.io/badge/reMarkable-v3.13-green)-->
 [![rmPP](https://img.shields.io/badge/rMPP-supported-green)](https://remarkable.com/store/remarkable-paper/pro)
 [![Discord](https://img.shields.io/discord/385916768696139794.svg?label=reMarkable&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/ATqQGfu)
 
-# reLuminate
 reLuminate is a service to enable enhanced screen brightness levels beyond the factory limits on the reMarkable Paper Pro. This change persists across system boots.
 > [!CAUTION]
 > This hack is provided 'as-is' and without warranty. We assume no liability for any damage resulting from hardware modifications.
