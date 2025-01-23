@@ -11,8 +11,10 @@ installfile='./install-remarkable-brightness.sh'
 pkgname='remarkable-brightness'
 servicefile="/lib/systemd/system/${pkgname}.service"
 
+# TODO this needs updated to an arm64 version of wget (https://github.com/rM-self-serve/webinterface-onboot/issues/6)
+# OR...it looks like the reMarkable Paper Pro might already have a wget version that works without this (to be verified)
 wget_path=/home/root/.local/share/remarkable-brightness/wget
-wget_remote=http://toltec-dev.org/thirdparty/bin/wget-v1.21.1-1  # TODO this needs updated to an arm64 version of wget (https://github.com/rM-self-serve/webinterface-onboot/issues/6)
+wget_remote=http://toltec-dev.org/thirdparty/bin/wget-v1.21.1-1
 wget_checksum=c258140f059d16d24503c62c1fdf747ca843fe4ba8fcd464a6e6bda8c3bbb6b5
 
 main() {
