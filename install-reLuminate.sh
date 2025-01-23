@@ -93,13 +93,12 @@ install() {
 		echo "Fetched ${pkgname}.service"
 	fi
 
-	systemctl daemon-reload
+	# Start service
+ 	systemctl daemon-reload
+ 	systemctl enable ${pkgname} --now
 
 	echo ''
 	echo "Finished installing $pkgname"
-	echo ''
-	echo "Run the following command to use ${pkgname}"
-	echo "$ systemctl enable ${pkgname} --now"
 	echo ''
 
 	[[ -f $installfile ]] && rm $installfile
