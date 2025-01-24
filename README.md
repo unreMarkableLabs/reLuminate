@@ -46,6 +46,12 @@ During boot, the service will enable the linear_mapping mode on the front light.
 
 `echo yes > /sys/class/backlight/rm_frontlight/linear_mapping`
 
+# Support
+If this project made your life a little easier, consider supporting!
+
+<a href="https://www.buymeacoffee.com/stephenpapierski" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41"></a>
+
+
 # Reference Articles/Posts
 Brightness hack
 
