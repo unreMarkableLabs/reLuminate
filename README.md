@@ -24,6 +24,19 @@ To start, enable [developer mode](https://developer.remarkable.com/documentation
 > [!WARNING]
 > Enabling developer mode will wipe your tablet.
 
+
+## New Instructions
+### Manual
+umount -l /etc
+mount -o remount,rw /
+scp service file to correct location
+systemctl enable reLuminate.service --now
+
+### Install Script
+scp install script
+install-reLuminate.sh install
+or install-reLuminate.sh remove
+
 ### Install
 This will install and enable the service.
 
