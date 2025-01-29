@@ -17,8 +17,6 @@ jobs:
       run: |
         tag=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
         sed -i "s/VERSION/$tag/g" install-reLuminate.sh
-        service_file_sha256sum=$(sha256sum reLuminate.service | cut -d ' ' -f 1)
-        sed -i "s/SERVICE_FILE_SHA256SUM/$service_file_sha256sum/g" install-reLuminate.sh
 
     - name: Get tag message
       run: |
@@ -34,7 +32,6 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          reLuminate.service
           install-reLuminate.sh
         body: ${{ env.RELEASE_NOTES }}
 
