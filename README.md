@@ -17,12 +17,12 @@ reLuminate is a service to enable enhanced screen brightness levels beyond the f
 - ✅ All software versions
 
 ## Installation
-To start, enable [developer mode](https://developer.remarkable.com/documentation/developer-mode) and gain `ssh` access to your tablet. The install instructions assume you are sshing over USB where the tablet will show up at `10.11.99.1`. If you are sshing wirelessly, substitute the correct IP address.
+To start, enable <a href="https://developer.remarkable.com/documentation/developer-mode" target="_blank">developer mode</a> and gain `ssh` access to your tablet. The install instructions assume you are sshing over USB where the tablet will show up at `10.11.99.1`. If you are sshing wirelessly, substitute the correct IP address.
 > [!WARNING]
 > Enabling developer mode will wipe your tablet.
 
 ### Install
-1. Download <a href="https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
+1. Download <a href="https://github.com/unreMarkableLabs/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
    `scp install-reLuminate.sh root@10.11.99.1:~`
@@ -34,7 +34,7 @@ To start, enable [developer mode](https://developer.remarkable.com/documentation
    `bash install-reLuminate.sh install`
 
 ### Remove
-1. Download <a href="https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
+1. Download <a href="https://github.com/unreMarkableLabs/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
    `scp ./install-reLuminate.sh root@10.11.99.1:~`
