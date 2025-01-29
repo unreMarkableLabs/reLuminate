@@ -37,7 +37,7 @@ To start, enable <a href="https://developer.remarkable.com/documentation/develop
 1. Download <a href="https://github.com/unreMarkableLabs/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
-   `scp ./install-reLuminate.sh root@10.11.99.1:~`
+   `scp install-reLuminate.sh root@10.11.99.1:~`
 1. ssh to reMarkable tablet
 
    `ssh root@10.11.99.1`
