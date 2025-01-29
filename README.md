@@ -14,38 +14,36 @@ reLuminate is a service to enable enhanced screen brightness levels beyond the f
 > support may refuse to help you. **Proceed at your own risk!**
 
 ## reMarkable Software Version Compatibility
-Unknown (for now). All?
-<!-- - ✅ <= v2.14
-- ✅ >= v2.15 - Requires simple binary hack
---- -->
+- ✅ All software versions
 
 ## Installation
-To start, enable [developer mode](https://developer.remarkable.com/documentation/developer-mode) and `ssh` to your tablet.
+To start, enable [developer mode](https://developer.remarkable.com/documentation/developer-mode) and gain `ssh` access to your tablet. The install instructions assume you are sshing over USB where the tablet will show up at `10.11.99.1`. If you are sshing wirelessly, substitute the correct IP address.
 > [!WARNING]
 > Enabling developer mode will wipe your tablet.
 
-
-## New Instructions
-### Manual
-umount -l /etc
-mount -o remount,rw /
-scp service file to correct location
-systemctl enable reLuminate.service --now
-
-### Install Script
-scp install script
-install-reLuminate.sh install
-or install-reLuminate.sh remove
-
 ### Install
-This will install and enable the service.
+1. Download <a href="[https://github.com/unreMarkableLabs/reLuminate/blob/main/install-reLuminate.sh](https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh)" target="_blank">`install-reLuminate.sh`</a>
+1. Copy `install-reLuminate.sh` to reMarkable tablet
 
-`$ wget -q https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh && bash install-reLuminate.sh`
+   `scp install-reLuminate.sh root@10.11.99.1:~`
+1. ssh to reMarkable tablet
+
+   `ssh root@10.11.99.1`
+1. Install reLuminate
+
+   `bash install-reLuminate.sh install`
 
 ### Remove
-This will disable and remove the service.
+1. Download <a href="[https://github.com/unreMarkableLabs/reLuminate/blob/main/install-reLuminate.sh](https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh)" target="_blank">`install-reLuminate.sh`</a>
+1. Copy `install-reLuminate.sh` to reMarkable tablet
 
-`$ wget -q https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh && bash install-reLuminate.sh remove`
+   `scp ./install-reLuminate.sh root@10.11.99.1:~`
+1. ssh to reMarkable tablet
+
+   `ssh root@10.11.99.1`
+1. Uninstall reLuminate
+
+   `bash install-reLuminate.sh remove`
 
 ## Usage
 ### To enable reLuminate service (done automatically on install), run:
@@ -55,7 +53,7 @@ This will disable and remove the service.
 `$ systemctl disable reLuminate --now`
 
 ## How Does It Work?
-During boot, the service will enable the linear_mapping mode on the front light.
+During boot, the service will enable the linear_mapping mode on the front light. This enables increased brightness levels.
 
 `echo yes > /sys/class/backlight/rm_frontlight/linear_mapping`
 
@@ -66,32 +64,9 @@ If this project made your life a little easier, consider supporting!
 
 
 # Reference Articles/Posts
-Brightness hack
 
 https://www.reddit.com/r/RemarkableTablet/comments/1g0x5tm/about_5_times_brighter_front_light_available_in/
 
 https://raqami.io/tips-tricks/remarkable-paper-pro-hack-for-brighter-frontlight-tutorial/
 
 https://www.reddit.com/r/RemarkableTablet/comments/1g09l0p/comment/lr7ximy/?share_id=aQgCCoBfX9XT25axEWlbw&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1
-
-Remounting file system
-
-https://www.reddit.com/r/RemarkableTablet/comments/1fiztzv/nonobvious_tips_for_loading_your_custom_templates/
-
-wget https support
-
-https://github.com/toltec-dev/bootstrap/tree/main
-
-https://github.com/rM-self-serve/webinterface-onboot/issues/6
-
-remarkable-toolchain
-
-https://remarkable.guide/devel/toolchains.html#docker
-
-rMPP kernel
-
-https://github.com/reMarkable/linux-imx-rm
-
-cross-compile wget for arm
-
-https://www.matteomattei.com/cross-compile-wget-statically-for-arm/
