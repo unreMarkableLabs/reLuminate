@@ -42,21 +42,22 @@ install() {
 	mount -o remount,rw /
 
 	# Create reLuminate systemd service file
-	cat <<EOF > $servicefile
+	cat > $servicefile <<EOF
 	[Unit]
 	Description=Enable linear_mapping for reading light
 	After=multi-user.target
 
 	[Service]
 	Type=oneshot
+	RemainAfterExit=yes
 	ExecStart=/bin/sh -c 'echo yes > /sys/class/backlight/rm_frontlight/linear_mapping'
-	ExecStartPost=/bin/sh -c 'cat /sys/class/backlight/rm_frontlight/actual_brightness > /sys/class/backlight/rm_frontlight/brightness'
+	ExecStartPost=/bin/sh -c 'cat /sys/class/backlight/rm_frontlight/max_brightness > /sys/class/backlight/rm_frontlight/brightness'
 	ExecStop=/bin/sh -c 'echo no > /sys/class/backlight/rm_frontlight/linear_mapping'
 	ExecStopPost=/bin/sh -c 'echo 260 > /sys/class/backlight/rm_frontlight/brightness'
 
 	[Install]
 	WantedBy=multi-user.target
-	<EOF>
+EOF
 
 	# Start service
  	systemctl daemon-reload
