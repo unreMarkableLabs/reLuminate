@@ -63,11 +63,10 @@ EOF
  	systemctl daemon-reload
  	systemctl enable ${pkgname} --now
 
-	echo ''
 	echo "Finished installing $pkgname"
 	echo ''
 
-	[[ -f $installfile ]] && rm $installfile
+	#[[ -f $installfile ]] && rm $installfile
 }
 
 remove() {
@@ -83,6 +82,7 @@ remove() {
 		systemctl disable "$pkgname"
 	fi
 
+	# Remove service file and install file
 	[[ -f $servicefile ]] && rm $servicefile
 	[[ -f $installfile ]] && rm $installfile
 
