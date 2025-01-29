@@ -25,37 +25,56 @@ To start, enable <a href="https://developer.remarkable.com/documentation/develop
 1. Download <a href="https://github.com/unreMarkableLabs/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
-   `scp install-reLuminate.sh root@10.11.99.1:~`
+   ```
+   scp install-reLuminate.sh root@10.11.99.1:~
+   ```
 1. ssh to reMarkable tablet
 
-   `ssh root@10.11.99.1`
+   ```
+   ssh root@10.11.99.1
+   ```
 1. Install reLuminate
 
-   `bash install-reLuminate.sh install`
+   ```
+   bash install-reLuminate.sh install
+   ```
 
 ### Remove
 1. Download <a href="https://github.com/unreMarkableLabs/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
-   `scp install-reLuminate.sh root@10.11.99.1:~`
+   ```
+   scp install-reLuminate.sh root@10.11.99.1:~
+   ```
 1. ssh to reMarkable tablet
 
-   `ssh root@10.11.99.1`
+   ```
+   ssh root@10.11.99.1
+   ```
 1. Uninstall reLuminate
 
-   `bash install-reLuminate.sh remove`
+   ```
+   bash install-reLuminate.sh remove
+   ```
 
 ## Usage
 ### To enable reLuminate service (done automatically on install), run:
-`$ systemctl enable reLuminate --now`
+```
+systemctl enable reLuminate --now
+```
 
 ### To disable reLuminate service, run:
-`$ systemctl disable reLuminate --now`
+```
+systemctl disable reLuminate --now
+```
 
 ## How Does It Work?
-During boot, the service will enable the linear_mapping mode on the front light. This enables increased brightness levels.
+During boot, the service will enable the linear_mapping mode and set the screen brightness to max. Now the brightness slider will have access to higher brightness levels.
 
-`echo yes > /sys/class/backlight/rm_frontlight/linear_mapping`
+```
+echo yes > /sys/class/backlight/rm_frontlight/linear_mapping
+cat /sys/class/backlight/rm_frontlight/max_brightness > /sys/class/backlight/rm_frontlight/brightness
+```
 
 # Support
 If this project made your life a little easier, consider supporting!
