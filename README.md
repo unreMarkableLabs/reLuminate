@@ -22,7 +22,7 @@ To start, enable [developer mode](https://developer.remarkable.com/documentation
 > Enabling developer mode will wipe your tablet.
 
 ### Install
-1. Download <a href="[https://github.com/unreMarkableLabs/reLuminate/blob/main/install-reLuminate.sh](https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh)" target="_blank">`install-reLuminate.sh`</a>
+1. Download <a href="https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
    `scp install-reLuminate.sh root@10.11.99.1:~`
@@ -34,7 +34,7 @@ To start, enable [developer mode](https://developer.remarkable.com/documentation
    `bash install-reLuminate.sh install`
 
 ### Remove
-1. Download <a href="[https://github.com/unreMarkableLabs/reLuminate/blob/main/install-reLuminate.sh](https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh)" target="_blank">`install-reLuminate.sh`</a>
+1. Download <a href="https://github.com/stephenpapierski/reLuminate/releases/latest/download/install-reLuminate.sh" target="_blank">`install-reLuminate.sh`</a>
 1. Copy `install-reLuminate.sh` to reMarkable tablet
 
    `scp ./install-reLuminate.sh root@10.11.99.1:~`
