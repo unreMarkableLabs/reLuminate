@@ -18,15 +18,15 @@ jobs:
         tag=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
         sed -i "s/VERSION/$tag/g" install-reLuminate.sh
 
-    - name: Get tag message
-      run: |
-        tag=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
-        # manually fetch the tag, otherwise commit message is found
-        git fetch --depth=1 origin +refs/tags/"$tag":refs/tags/"$tag"
-        message=$(git tag -l "$tag" --format '%(contents)')
-        echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
-        echo "$message" >> $GITHUB_ENV
-        echo "EOF" >> $GITHUB_ENV
+    #- name: Get tag message
+    #  run: |
+    #    tag=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+    #    # manually fetch the tag, otherwise commit message is found
+    #    git fetch --depth=1 origin +refs/tags/"$tag":refs/tags/"$tag"
+    #    message=$(git tag -l "$tag" --format '%(contents)')
+    #    echo "RELEASE_NOTES<<EOF" >> $GITHUB_ENV
+    #    echo "$message" >> $GITHUB_ENV
+    #    echo "EOF" >> $GITHUB_ENV
 
     - name: Upload release
       uses: softprops/action-gh-release@v2
