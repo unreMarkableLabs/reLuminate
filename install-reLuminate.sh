@@ -11,74 +11,74 @@ servicefile="/lib/systemd/system/${pkgname}.service"
 
 main() {
   case "$@" in
-	'install' | '')
-	  install
-		;;
-	'remove')
-		remove
-		;;
-	*)
-		echo 'input not recognized'
-		cli_info
-		exit 0
-		;;
-	esac
+    'install' | '')
+      install
+        ;;
+    'remove')
+        remove
+        ;;
+    *)
+        echo 'input not recognized'
+        cli_info
+        exit 0
+        ;;
+    esac
 }
 
 cli_info() {
-	echo "${pkgname} installer ${version}"
-	echo -e "${CYAN}COMMANDS:${NC}"
-	echo '  install'
-	echo '  remove'
-	echo ''
+    echo "${pkgname} installer ${version}"
+    echo -e "${CYAN}COMMANDS:${NC}"
+    echo '  install'
+    echo '  remove'
+    echo ''
 }
 
 install() {
-	echo "Install ${pkgname} ${version}"
+    echo "Install ${pkgname} ${version}"
 
-	# Make file system writeable
-	echo "Remounting file system"
-	umount -l /etc
-	mount -o remount,rw /
+    # Make file system writeable
+    echo "Remounting file system"
+    umount -l /etc
+    mount -o remount,rw /
 
-	# Create reLuminate systemd service file
- 	echo "Creating systemd service file"
-	cat > $servicefile <<EOF
-	[Unit]
-	Description=Enable linear_mapping for reading light
-	After=multi-user.target
+    # Create reLuminate systemd service file
+    echo "Creating systemd service file"
+    cat > $servicefile <<EOF
+    [Unit]
+    Description=Enable linear_mapping for reading light
+    After=multi-user.target
 
-	[Service]
-	Type=oneshot
-	RemainAfterExit=yes
-	ExecStart=/bin/sh -c 'echo yes > /sys/class/backlight/rm_frontlight/linear_mapping'
-	ExecStartPost=/bin/sh -c 'cat /sys/class/backlight/rm_frontlight/max_brightness > /sys/class/backlight/rm_frontlight/brightness'
-	ExecStop=/bin/sh -c 'echo no > /sys/class/backlight/rm_frontlight/linear_mapping'
-	ExecStopPost=/bin/sh -c 'echo 260 > /sys/class/backlight/rm_frontlight/brightness'
+    [Service]
+    Type=oneshot
+    RemainAfterExit=yes
+    ExecStart=/bin/sh -c 'echo yes > /sys/class/backlight/rm_frontlight/linear_mapping'
+    ExecStartPost=/bin/sh -c 'cat /sys/class/backlight/rm_frontlight/max_brightness > /sys/class/backlight/rm_frontlight/brightness'
+    ExecStop=/bin/sh -c 'echo no > /sys/class/backlight/rm_frontlight/linear_mapping'
+    ExecStopPost=/bin/sh -c 'echo 260 > /sys/class/backlight/rm_frontlight/brightness'
 
-	[Install]
-	WantedBy=multi-user.target
+    [Install]
+    WantedBy=multi-user.target
 EOF
 
-	# Start service
- 	echo "Enabling $pkgname"
- 	systemctl daemon-reload
- 	systemctl enable ${pkgname} --now
+    # Start service
+    echo "Enabling $pkgname"
+    systemctl daemon-reload
+    systemctl enable ${pkgname} --now
 
- 	echo "Finished installing $pkgname"
+    echo "Finished installing $pkgname"
 }
 
 remove() {
-	echo "Remove ${pkgname}"
+    echo "Remove ${pkgname}"
 
-	echo "Disabling $pkgname"
-	systemctl disable "$pkgname" --now
+    echo "Disabling $pkgname"
+    systemctl disable "$pkgname" --now
 
-	# Remove service file and install file
-	[[ -f $servicefile ]] && rm $servicefile
-	[[ -f $installfile ]] && rm $installfile
+    # Remove service file and install file
+    [[ -f $servicefile ]] && rm $servicefile
+    [[ -f $installfile ]] && rm $installfile
 
-	echo "Finished removing ${pkgname}"
+    echo "Finished removing ${pkgname}"
 }
 
 main "$@"
