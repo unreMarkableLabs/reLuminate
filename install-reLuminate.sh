@@ -35,13 +35,14 @@ cli_info() {
 
 install() {
 	echo "Install ${pkgname} ${version}"
-	echo ''
 
 	# Make file system writeable
+	echo "Remounting file system"
 	umount -l /etc
 	mount -o remount,rw /
 
 	# Create reLuminate systemd service file
+ 	echo "Creating systemd service file"
 	cat > $servicefile <<EOF
 	[Unit]
 	Description=Enable linear_mapping for reading light
@@ -60,33 +61,24 @@ install() {
 EOF
 
 	# Start service
+ 	echo "Enabling $pkgname"
  	systemctl daemon-reload
  	systemctl enable ${pkgname} --now
 
-	echo "Finished installing $pkgname"
-	echo ''
-
-	#[[ -f $installfile ]] && rm $installfile
+ 	echo "Finished installing $pkgname"
 }
 
 remove() {
 	echo "Remove ${pkgname}"
-	echo ''
 
-	if systemctl --quiet is-active "$pkgname" 2>/dev/null; then
-		echo "Stopping $pkgname"
-		systemctl stop "$pkgname"
-	fi
-	if systemctl --quiet is-enabled "$pkgname" 2>/dev/null; then
-		echo "Disabling $pkgname"
-		systemctl disable "$pkgname"
-	fi
+	echo "Disabling $pkgname"
+	systemctl disable "$pkgname" --now
 
 	# Remove service file and install file
 	[[ -f $servicefile ]] && rm $servicefile
 	[[ -f $installfile ]] && rm $installfile
 
-	echo "Successfully removed ${pkgname}"
+	echo "Finished removing ${pkgname}"
 }
 
 main "$@"
